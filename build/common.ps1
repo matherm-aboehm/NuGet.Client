@@ -198,7 +198,7 @@ Function Install-DotnetCLI {
 
     $cli = @{
         Root = $CLIRoot
-        Version = 'latest'
+        Version = '2.2.110'
         Channel = $CliBranchForTesting.Trim()
     }
     
@@ -221,7 +221,7 @@ Function Install-DotnetCLI {
 
         $DotNetInstall = Join-Path $cli.Root 'dotnet-install.ps1'
 
-        Invoke-WebRequest 'https://raw.githubusercontent.com/dotnet/cli/master/scripts/obtain/dotnet-install.ps1' -OutFile $DotNetInstall
+        Invoke-WebRequest 'https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.ps1' -OutFile $DotNetInstall
         & $DotNetInstall -Channel $cli.Channel -i $cli.Root -Version $cli.Version -Architecture $arch
     }
 
